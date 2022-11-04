@@ -1,0 +1,4 @@
+Python v3.10
+Django v4.0
+Django Bootstrap v5.4
+Django Bootstrap form

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bài thi nộp{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="col-12 col-sm-6 col-md-10">
+                    <strong><h3>Bài thi nộp</h3></strong>
+        <hr/>
+            {% for foo in exam_submission %}
+
+
+                <p> <h4>Họ Tên</h4> {{ foo.name }} </p>
+
+                <p> <h4>Tên bài</h4> {{ foo.assignment.title }} </p>
+                <hr/>
+                <p> <h4>Bài làm</h4> {{ foo.content }}  </p>
+
+                <p> <h4>Điểm</h4> {{ foo.marks }}  </p>
+
+                <br/>
+                {% if request.user.is_authenticated and request.user.role == 'instructor' %}
+                <a href="{% url 'core:exam-score' foo.id %}">Chấm điểm</a>
+                
+                {% endif %}
+                  <hr/>
+            {% endfor %}
+
+
+
+
+            <br/>
+
+
+            <br/>
+
+
+        </div>
+
+    </div>
+
+{% endblock %}

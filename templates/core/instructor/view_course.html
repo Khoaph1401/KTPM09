@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Courses{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+
+    <div class="col-12 col-sm-6 col-md-10">
+
+
+             <h3><strong>{{ course.course_name }}  </strong></h3>
+              <br/>
+
+
+                         <hr/>
+                  <h4> <strong>Giáo viên :</strong> {{ course.teacher_name }} </h4>
+                           <br/>
+                  <p> <h4>Tên môn </h4>{{ course.course_description }} </p>
+
+                          <br/>
+                  <h4><a href="{% url 'core:assignment-list' %}">Bài tập </a></h4>
+                           <br/>
+                  <h4><a href="{% url 'core:exam-list' %}">Bài thi </a> </h4>
+                           <br/>
+
+
+
+
+         </div>
+
+    </div>
+
+{% endblock %}
